@@ -1,0 +1,233 @@
+/* ============================================
+   SISTEMA DE TEMAS - Santo Pecatto
+   ============================================ */
+
+/* ============================================
+   TEMA CLARO (theme-light)
+   ============================================ */
+.theme-light {
+    --color-bg-primary: #f8fafc;
+    --color-bg-secondary: #ffffff;
+    --color-text-primary: #1e293b;
+    --color-text-secondary: #64748b;
+    --color-accent: #3b82f6;
+    --color-accent-hover: #2563eb;
+    --color-border: #e2e8f0;
+    --color-sidebar-bg: linear-gradient(to bottom, #4f46e5, #6366f1);
+    --color-sidebar-text: #ffffff;
+    --color-nav-hover: rgba(255, 255, 255, 0.1);
+    --color-nav-active: rgba(255, 255, 255, 0.2);
+    --font-size-base: 16px;
+}
+
+/* ============================================
+   TEMA OSCURO (theme-dark)
+   ============================================ */
+.theme-dark {
+    --color-bg-primary: #0f172a;
+    --color-bg-secondary: #1e293b;
+    --color-text-primary: #f1f5f9;
+    --color-text-secondary: #94a3b8;
+    --color-accent: #60a5fa;
+    --color-accent-hover: #3b82f6;
+    --color-border: #334155;
+    --color-sidebar-bg: linear-gradient(to bottom, #1e293b, #334155);
+    --color-sidebar-text: #f1f5f9;
+    --color-nav-hover: rgba(255, 255, 255, 0.1);
+    --color-nav-active: rgba(255, 255, 255, 0.15);
+    --font-size-base: 16px;
+}
+
+/* ============================================
+   TEMA NIÑOS (theme-kids)
+   ============================================ */
+.theme-kids {
+    --color-bg-primary: #fef3c7;
+    --color-bg-secondary: #fef9c3;
+    --color-text-primary: #78350f;
+    --color-text-secondary: #92400e;
+    --color-accent: #f59e0b;
+    --color-accent-hover: #d97706;
+    --color-border: #fde68a;
+    --color-sidebar-bg: linear-gradient(to bottom, #f59e0b, #fb923c);
+    --color-sidebar-text: #ffffff;
+    --color-nav-hover: rgba(255, 255, 255, 0.2);
+    --color-nav-active: rgba(255, 255, 255, 0.3);
+    --font-size-base: 18px;
+    /* Tamaño aumentado para niños */
+}
+
+/* ============================================
+   APLICACIÓN DE VARIABLES CSS
+   ============================================ */
+
+/* Contenedor principal */
+.theme-container {
+    background-color: var(--color-bg-primary);
+    color: var(--color-text-primary);
+    font-size: var(--font-size-base);
+}
+
+/* Sidebar */
+.sidebar {
+    background: var(--color-sidebar-bg);
+    color: var(--color-sidebar-text);
+}
+
+.sidebar-footer {
+    border-color: var(--color-nav-hover);
+}
+
+/* Navegación */
+.nav-link {
+    color: var(--color-sidebar-text);
+}
+
+.nav-link:hover {
+    background-color: var(--color-nav-hover);
+}
+
+.nav-link-active {
+    background-color: var(--color-nav-active);
+    font-weight: 600;
+}
+
+/* Top Navigation */
+.top-nav {
+    background-color: var(--color-bg-secondary);
+    border-color: var(--color-border);
+    color: var(--color-text-primary);
+}
+
+.nav-toggle {
+    color: var(--color-text-primary);
+}
+
+/* Main Content */
+.main-content {
+    background-color: var(--color-bg-primary);
+    color: var(--color-text-primary);
+}
+
+/* Theme Selector */
+.theme-selector-button {
+    background-color: var(--color-nav-hover);
+    color: var(--color-sidebar-text);
+}
+
+.theme-selector-button:hover {
+    background-color: var(--color-nav-active);
+}
+
+.theme-dropdown {
+    background-color: var(--color-bg-secondary);
+    border: 1px solid var(--color-border);
+}
+
+.theme-option {
+    color: var(--color-text-primary);
+}
+
+.theme-option:hover {
+    background-color: var(--color-nav-hover);
+}
+
+.theme-option-active {
+    background-color: var(--color-accent);
+    color: white;
+}
+
+/* Profile Button */
+.profile-button {
+    color: var(--color-text-primary);
+}
+
+.profile-button:hover {
+    background-color: var(--color-nav-hover);
+}
+
+.user-name {
+    color: var(--color-text-primary);
+}
+
+/* Cards y Containers */
+.card {
+    background-color: var(--color-bg-secondary);
+    border: 1px solid var(--color-border);
+    color: var(--color-text-primary);
+}
+
+/* Buttons */
+.btn-primary {
+    background-color: var(--color-accent);
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: var(--color-accent-hover);
+}
+
+/* Inputs */
+input,
+textarea,
+select {
+    background-color: var(--color-bg-secondary);
+    border-color: var(--color-border);
+    color: var(--color-text-primary);
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    border-color: var(--color-accent);
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+}
+
+/* Tables */
+table {
+    background-color: var(--color-bg-secondary);
+    color: var(--color-text-primary);
+}
+
+thead {
+    background-color: var(--color-accent);
+    color: white;
+}
+
+tbody tr:hover {
+    background-color: var(--color-nav-hover);
+}
+
+/* Footer */
+.page-footer {
+    background-color: var(--color-bg-secondary);
+    border-top: 1px solid var(--color-border);
+    color: var(--color-text-secondary);
+    padding: 1rem;
+    text-align: center;
+    font-size: 0.875rem;
+}
+
+/* ============================================
+   MODO DÍA/NOCHE AUTOMÁTICO
+   ============================================ */
+/* El modo se maneja via JavaScript en AppLayout.vue
+   basado en la hora del cliente */
+
+/* ============================================
+   TEMA ADULTOS (Opcional - Fuente más grande)
+   ============================================ */
+.theme-adults {
+    --font-size-base: 20px;
+    /* Tamaño aumentado para adultos */
+}
+
+/* ============================================
+   TEMA JÓVENES (Opcional)
+   ============================================ */
+.theme-youth {
+    --font-size-base: 16px;
+    --color-accent: #8b5cf6;
+    --color-accent-hover: #7c3aed;
+}

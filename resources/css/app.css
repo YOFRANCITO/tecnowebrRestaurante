@@ -1,0 +1,589 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+:root.theme-light {
+    --bg-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --bg-secondary: rgba(255, 255, 255, 0.95);
+    --bg-main: rgba(255, 255, 255, 0.7);
+    --sidebar-bg: linear-gradient(180deg, #4f46e5 0%, #3730a3 100%);
+    --sidebar-border: rgba(79, 70, 229, 0.2);
+    --text-primary: #1f2937;
+    --text-secondary: #6b7280;
+    --text-sidebar: #ffffff;
+    --nav-hover: rgba(255, 255, 255, 0.1);
+    --nav-active: rgba(255, 255, 255, 0.2);
+    --theme-selector: rgba(255, 255, 255, 0.1);
+    --theme-dropdown: rgba(255, 255, 255, 0.95);
+    --theme-option: rgba(79, 70, 229, 0.1);
+    --theme-option-active: rgba(79, 70, 229, 0.2);
+    --border-color: rgba(229, 231, 235, 0.5);
+}
+
+/* Variables CSS para Tema Oscuro */
+:root.theme-dark {
+    --bg-primary: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    --bg-secondary: rgba(31, 41, 55, 0.95);
+    --bg-main: rgba(17, 24, 39, 0.8);
+    --sidebar-bg: linear-gradient(180deg, #111827 0%, #030712 100%);
+    --sidebar-border: rgba(75, 85, 99, 0.2);
+    --text-primary: #f9fafb;
+    --text-secondary: #d1d5db;
+    --text-sidebar: #f9fafb;
+    --nav-hover: rgba(75, 85, 99, 0.3);
+    --nav-active: rgba(79, 70, 229, 0.3);
+    --theme-selector: rgba(75, 85, 99, 0.2);
+    --theme-dropdown: rgba(31, 41, 55, 0.95);
+    --theme-option: rgba(75, 85, 99, 0.1);
+    --theme-option-active: rgba(79, 70, 229, 0.2);
+    --border-color: rgba(75, 85, 99, 0.3);
+}
+
+/* Variables CSS para Tema Niños */
+:root.theme-kids {
+    --bg-primary: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #fecfef 100%);
+    --bg-secondary: rgba(255, 255, 255, 0.95);
+    --bg-main: rgba(255, 250, 240, 0.8);
+    --sidebar-bg: linear-gradient(180deg, #ff6b6b 0%, #4ecdc4 100%);
+    --sidebar-border: rgba(255, 107, 107, 0.2);
+    --text-primary: #2d3748;
+    --text-secondary: #4a5568;
+    --text-sidebar: #ffffff;
+    --nav-hover: rgba(255, 255, 255, 0.2);
+    --nav-active: rgba(255, 255, 255, 0.3);
+    --theme-selector: rgba(255, 255, 255, 0.2);
+    --theme-dropdown: rgba(255, 255, 255, 0.95);
+    --theme-option: rgba(255, 107, 107, 0.1);
+    --theme-option-active: rgba(255, 107, 107, 0.2);
+    --border-color: rgba(255, 192, 203, 0.5);
+}
+
+/* Tema Jóvenes */
+:root.theme-young {
+    --bg-primary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    --bg-secondary: rgba(255, 255, 255, 0.95);
+    --bg-main: rgba(255, 245, 250, 0.8);
+    --sidebar-bg: linear-gradient(180deg, #667eea 0%, #764ba2 100%);
+    --sidebar-border: rgba(102, 126, 234, 0.2);
+    --text-primary: #1a202c;
+    --text-secondary: #4a5568;
+    --text-sidebar: #ffffff;
+    --nav-hover: rgba(255, 255, 255, 0.15);
+    --nav-active: rgba(255, 255, 255, 0.25);
+    --theme-selector: rgba(255, 255, 255, 0.15);
+    --theme-dropdown: rgba(255, 255, 255, 0.95);
+    --theme-option: rgba(102, 126, 234, 0.1);
+    --theme-option-active: rgba(102, 126, 234, 0.2);
+    --border-color: rgba(167, 139, 250, 0.3);
+}
+
+/* Tema Adultos */
+:root.theme-adult {
+    --bg-primary: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+    --bg-secondary: rgba(236, 240, 241, 0.95);
+    --bg-main: rgba(245, 247, 250, 0.8);
+    --sidebar-bg: linear-gradient(180deg, #3d4e60 0%, #2c3e50 100%);
+    --sidebar-border: rgba(52, 73, 94, 0.2);
+    --text-primary: #2c3e50;
+    --text-secondary: #7f8c8d;
+    --text-sidebar: #ecf0f1;
+    --nav-hover: rgba(236, 240, 241, 0.1);
+    --nav-active: rgba(236, 240, 241, 0.2);
+    --theme-selector: rgba(236, 240, 241, 0.1);
+    --theme-dropdown: rgba(236, 240, 241, 0.95);
+    --theme-option: rgba(52, 73, 94, 0.1);
+    --theme-option-active: rgba(52, 73, 94, 0.2);
+    --border-color: rgba(189, 195, 199, 0.5);
+}
+
+/* Tamaños de Fuente - Accesibilidad */
+:root.font-small {
+    font-size: 14px;
+}
+
+:root.font-normal {
+    font-size: 16px;
+}
+
+:root.font-large {
+    font-size: 18px;
+}
+
+:root.font-xlarge {
+    font-size: 20px;
+}
+
+/* Contraste Alto - Accesibilidad */
+:root.contrast-high.theme-light {
+    --text-primary: #000000;
+    --text-secondary: #333333;
+    --bg-main: rgba(255, 255, 255, 0.95);
+    --bg-secondary: rgba(255, 255, 255, 1);
+}
+
+:root.contrast-high.theme-dark {
+    --text-primary: #ffffff;
+    --text-secondary: #e0e0e0;
+    --bg-main: rgba(0, 0, 0, 0.95);
+    --bg-secondary: rgba(17, 17, 17, 1);
+}
+
+:root.contrast-very-high {
+    --text-primary: #000000 !important;
+    --text-secondary: #000000 !important;
+    --bg-main: #ffffff !important;
+    --bg-secondary: #ffffff !important;
+    --sidebar-bg: linear-gradient(180deg, #000000 0%, #1a1a1a 100%) !important;
+    --text-sidebar: #ffffff !important;
+    --border-color: #000000 !important;
+}
+
+/* Aplicar variables CSS */
+.theme-container {
+    background: var(--bg-primary);
+    color: var(--text-primary);
+}
+
+.sidebar {
+    background: var(--sidebar-bg);
+    color: var(--text-sidebar);
+}
+
+.sidebar-footer {
+    border-color: var(--sidebar-border);
+}
+
+.theme-selector-button {
+    background: var(--theme-selector);
+    border: 1px solid var(--sidebar-border);
+}
+
+.theme-selector-button:hover {
+    background: var(--nav-hover);
+}
+
+.theme-dropdown {
+    background: var(--theme-dropdown);
+    border: 1px solid var(--border-color);
+    backdrop-filter: blur(10px);
+}
+
+.theme-option {
+    color: var(--text-primary);
+}
+
+.theme-option:hover {
+    background: var(--theme-option);
+}
+
+.theme-option-active {
+    background: var(--theme-option-active);
+}
+
+.nav-link {
+    color: var(--text-sidebar);
+}
+
+.nav-link:hover {
+    background: var(--nav-hover);
+}
+
+.nav-link-active {
+    background: var(--nav-active);
+    font-weight: 600;
+}
+
+.top-nav {
+    background: var(--bg-secondary);
+    border-color: var(--border-color);
+}
+
+.nav-toggle {
+    color: var(--text-primary);
+}
+
+.user-name {
+    color: var(--text-primary);
+}
+
+.profile-button {
+    color: var(--text-primary);
+}
+
+.profile-button:hover {
+    background: var(--theme-option);
+}
+
+.main-content {
+    background: var(--bg-main);
+}
+
+.card {
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+/* Efectos especiales para tema niños */
+:root.theme-kids .sidebar {
+    position: relative;
+}
+
+:root.theme-kids .sidebar::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image:
+        radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.1) 2px, transparent 2px),
+        radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.1) 2px, transparent 2px),
+        radial-gradient(circle at 40% 60%, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    background-size: 50px 50px, 60px 60px, 30px 30px;
+    pointer-events: none;
+}
+
+:root.theme-kids .nav-link {
+    position: relative;
+    overflow: hidden;
+}
+
+:root.theme-kids .nav-link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+}
+
+:root.theme-kids .nav-link:hover::before {
+    left: 100%;
+}
+
+/* Efectos para tema jóvenes - FIX: pointer-events none para evitar bloqueo de clics */
+:root.theme-young .sidebar {
+    position: relative;
+    overflow: hidden;
+}
+
+:root.theme-young .sidebar::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+    animation: pulse 4s ease-in-out infinite;
+    pointer-events: none;
+    z-index: 0;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 0.5;
+    }
+
+    50% {
+        transform: scale(1.1);
+        opacity: 0.8;
+    }
+}
+
+/* Transiciones suaves */
+* {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Click fuera para cerrar dropdown */
+.theme-dropdown {
+    animation: fadeIn 0.2s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ========================================
+   FIX DE CONTRASTE PARA TEMA OSCURO
+   ======================================== */
+
+/* Asegurar que las cards tengan fondo oscuro y texto claro */
+:root.theme-dark .card,
+:root.theme-dark .bg-white {
+    background-color: var(--bg-secondary) !important;
+    color: var(--text-primary) !important;
+}
+
+/* Inputs, selects y textareas en tema oscuro */
+:root.theme-dark input,
+:root.theme-dark select,
+:root.theme-dark textarea {
+    background-color: rgba(17, 24, 39, 0.9) !important;
+    color: var(--text-primary) !important;
+    border-color: var(--border-color) !important;
+}
+
+/* Tablas en tema oscuro */
+:root.theme-dark table {
+    color: var(--text-primary);
+}
+
+:root.theme-dark th {
+    color: var(--text-primary);
+    background-color: rgba(17, 24, 39, 0.5);
+}
+
+:root.theme-dark td {
+    color: var(--text-primary);
+    border-color: var(--border-color);
+}
+
+/* Clases de Tailwind que necesitan override en tema oscuro */
+:root.theme-dark .text-gray-600,
+:root.theme-dark .text-gray-700,
+:root.theme-dark .text-gray-800,
+:root.theme-dark .text-gray-900 {
+    color: var(--text-secondary) !important;
+}
+
+:root.theme-dark .bg-gray-50,
+:root.theme-dark .bg-gray-100,
+:root.theme-dark .bg-gray-200 {
+    background-color: rgba(31, 41, 55, 0.5) !important;
+}
+
+/* Fix para cards seleccionados y estados especiales en tema oscuro */
+:root.theme-dark .bg-blue-50,
+:root.theme-dark .bg-blue-100,
+:root.theme-dark .bg-green-50,
+:root.theme-dark .bg-green-100,
+:root.theme-dark .bg-yellow-50,
+:root.theme-dark .bg-yellow-100,
+:root.theme-dark .bg-red-50,
+:root.theme-dark .bg-red-100,
+:root.theme-dark .bg-purple-50,
+:root.theme-dark .bg-purple-100,
+:root.theme-dark .bg-indigo-50,
+:root.theme-dark .bg-indigo-100 {
+    background-color: rgba(31, 41, 55, 0.6) !important;
+    color: var(--text-primary) !important;
+}
+
+/* Fix para badges y estados */
+:root.theme-dark .bg-yellow-200 {
+    background-color: rgba(251, 191, 36, 0.3) !important;
+    color: #fbbf24 !important;
+}
+
+:root.theme-dark .bg-green-200 {
+    background-color: rgba(34, 197, 94, 0.3) !important;
+    color: #22c55e !important;
+}
+
+:root.theme-dark .bg-blue-200 {
+    background-color: rgba(59, 130, 246, 0.3) !important;
+    color: #3b82f6 !important;
+}
+
+:root.theme-dark .bg-red-200 {
+    background-color: rgba(239, 68, 68, 0.3) !important;
+    color: #ef4444 !important;
+}
+
+/* Fix para textos de colores en tema oscuro */
+:root.theme-dark .text-blue-600,
+:root.theme-dark .text-blue-700,
+:root.theme-dark .text-blue-800 {
+    color: #60a5fa !important;
+}
+
+:root.theme-dark .text-green-600,
+:root.theme-dark .text-green-700,
+:root.theme-dark .text-green-800 {
+    color: #4ade80 !important;
+}
+
+:root.theme-dark .text-yellow-600,
+:root.theme-dark .text-yellow-700,
+:root.theme-dark .text-yellow-800 {
+    color: #facc15 !important;
+}
+
+:root.theme-dark .text-red-600,
+:root.theme-dark .text-red-700,
+:root.theme-dark .text-red-800 {
+    color: #f87171 !important;
+}
+
+/* Fix para bordes en tema oscuro */
+:root.theme-dark .border-blue-200,
+:root.theme-dark .border-blue-300 {
+    border-color: rgba(59, 130, 246, 0.3) !important;
+}
+
+:root.theme-dark .border-green-200,
+:root.theme-dark .border-green-300 {
+    border-color: rgba(34, 197, 94, 0.3) !important;
+}
+
+:root.theme-dark .border-yellow-200,
+:root.theme-dark .border-yellow-300 {
+    border-color: rgba(251, 191, 36, 0.3) !important;
+}
+
+/* ========================================
+   FUENTES PERSONALIZADAS POR TEMA
+   ======================================== */
+
+
+/* Tema Niños - Fuente divertida y redondeada */
+:root.theme-kids {
+    font-family: 'Fredoka', sans-serif;
+    font-size: 17px;
+}
+
+:root.theme-kids h1,
+:root.theme-kids h2,
+:root.theme-kids h3,
+:root.theme-kids h4 {
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+:root.theme-kids button,
+:root.theme-kids .btn {
+    font-weight: 500;
+    border-radius: 12px !important;
+}
+
+/* Tema Jóvenes - Fuente moderna y dinámica */
+:root.theme-young {
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+}
+
+:root.theme-young h1,
+:root.theme-young h2,
+:root.theme-young h3,
+:root.theme-young h4 {
+    font-weight: 600;
+    letter-spacing: -0.5px;
+}
+
+:root.theme-young button,
+:root.theme-young .btn {
+    font-weight: 500;
+    text-transform: none;
+}
+
+/* Tema Adultos - Fuente serif elegante */
+:root.theme-adult {
+    font-family: 'Merriweather', serif;
+    font-size: 15px;
+}
+
+:root.theme-adult h1,
+:root.theme-adult h2,
+:root.theme-adult h3,
+:root.theme-adult h4 {
+    font-family: 'Merriweather', serif;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+}
+
+:root.theme-adult button,
+:root.theme-adult .btn {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+}
+
+:root.theme-adult p,
+:root.theme-adult span,
+:root.theme-adult div {
+    line-height: 1.7;
+}
+
+/* ========================================
+   FIX: FUENTES MÁS ESPECÍFICAS
+   ======================================== */
+
+/* Tema Niños - Aplicar a TODOS los elementos */
+:root.theme-kids,
+:root.theme-kids *,
+:root.theme-kids body,
+:root.theme-kids .sidebar,
+:root.theme-kids table,
+:root.theme-kids th,
+:root.theme-kids td,
+:root.theme-kids input,
+:root.theme-kids select,
+:root.theme-kids textarea {
+    font-family: 'Fredoka', sans-serif !important;
+}
+
+:root.theme-kids {
+    font-size: 17px !important;
+}
+
+/* Tema Jóvenes - Aplicar a TODOS los elementos */
+:root.theme-young,
+:root.theme-young *,
+:root.theme-young body,
+:root.theme-young .sidebar,
+:root.theme-young table,
+:root.theme-young th,
+:root.theme-young td,
+:root.theme-young input,
+:root.theme-young select,
+:root.theme-young textarea {
+    font-family: 'Poppins', sans-serif !important;
+}
+
+:root.theme-young {
+    font-size: 16px !important;
+}
+
+/* Tema Adultos - Aplicar a TODOS los elementos */
+:root.theme-adult,
+:root.theme-adult *,
+:root.theme-adult body,
+:root.theme-adult .sidebar,
+:root.theme-adult table,
+:root.theme-adult th,
+:root.theme-adult td {
+    font-family: 'Merriweather', serif !important;
+}
+
+/* Botones en tema adultos usan sans-serif */
+:root.theme-adult button,
+:root.theme-adult .btn,
+:root.theme-adult input,
+:root.theme-adult select,
+:root.theme-adult textarea {
+    font-family: 'Poppins', sans-serif !important;
+}
+
+:root.theme-adult {
+    font-size: 15px !important;
+}

@@ -1,0 +1,1 @@
+import{e as o,o as a,a as t,t as s}from"./app-BOjp7WPP.js";const n={class:"p-10 text-center"},c={class:"text-4xl font-bold text-blue-600"},r={class:"mt-4 text-gray-600"},_={__name:"HolaMundo",props:{nombre:String,mensaje:String},setup(e){return(l,i)=>(a(),o("div",n,[t("h1",c,"¡Hola "+s(e.nombre)+"!",1),t("p",r,s(e.mensaje),1)]))}};export{_ as default};
