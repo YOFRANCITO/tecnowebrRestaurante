@@ -22,6 +22,7 @@ use App\Http\Controllers\Admin\CreditoController;
 use App\Http\Controllers\Admin\PagoController;
 use App\Http\Controllers\Admin\ReporteController;
 use App\Http\Controllers\GlobalSearchController;
+use Inertia\Inertia;
 
 // =====================================================
 // RUTA RAÍZ - REDIRIGE AL LOGIN
@@ -51,13 +52,13 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',
         Route::resource('users', RestaurantUserController::class);
         Route::resource('mesas', MesaController::class)->except(['show']);
         Route::resource('planes', PlanController::class)->except(['show']);
-        
+
         // Rutas de reportes
         Route::get('reportes/dashboard', [ReporteController::class, 'dashboard'])->name('reportes.dashboard')->withoutMiddleware('restaurant.role:administrador')->middleware('restaurant.role:administrador,almacenero');
         Route::get('reportes/ventas', [ReporteController::class, 'ventas'])->name('reportes.ventas');
         Route::get('reportes/compras', [ReporteController::class, 'compras'])->name('reportes.compras');
         Route::get('reportes/creditos', [ReporteController::class, 'creditos'])->name('reportes.creditos');
-        
+
         // Rutas de exportación
         Route::get('reportes/ventas/export/excel', [ReporteController::class, 'exportVentasExcel'])->name('reportes.ventas.export.excel');
         Route::get('reportes/ventas/export/pdf', [ReporteController::class, 'exportVentasPdf'])->name('reportes.ventas.export.pdf');
@@ -74,16 +75,16 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',
     ->group(function () {
         Route::resource('marcas', MarcaController::class)->except(['show']);
         Route::resource('insumos', InsumoController::class)->except(['show']);
-        
+
         // Movimientos - rutas especiales primero
         Route::get('movimientos/archived', [MovimientoController::class, 'archived'])->name('movimientos.archived');
         Route::post('movimientos/{id}/restore', [MovimientoController::class, 'restore'])->name('movimientos.restore');
         Route::resource('movimientos', MovimientoController::class)->only(['index', 'create', 'store', 'destroy']);
-        
+
         // Proveedores y Compras
         Route::resource('proveedores', ProveedorController::class)->except(['show']);
         Route::resource('compras', CompraController::class)->except(['show']);
-        
+
         // Productos
         Route::resource('productos', ProductoController::class)->except(['show']);
     });
@@ -132,3 +133,26 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',
         Route::get('pagos/create', [PagoController::class, 'create'])->name('pagos.create');
         Route::post('pagos', [PagoController::class, 'store'])->name('pagos.store');
     });
+
+    
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified',
+    'restaurant.role:cliente'
+])
+->prefix('restaurant')
+->name('restaurant.')
+->group(function () {
+
+    Route::get('pagos/qr', [PagoController::class, 'pagoqr'])->name('pagos.qr');
+
+    Route::post('pagos/consultar', [PagoController::class, 'ConsultarEstado'])
+        ->name('pagos.consultar');
+
+    Route::post('pagos/completar', [PagoController::class, 'crearpago'])
+        ->name('pagos.completar');
+
+    Route::get('pagos/success', [PagoController::class, 'success'])
+        ->name('pagos.success');
+});

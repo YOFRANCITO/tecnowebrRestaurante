@@ -30,6 +30,7 @@ function submit() {
 
 <template>
     <AppLayout>
+
         <Head title="Realizar Pago - Restaurante" />
 
         <div class="flex flex-col min-h-screen">
@@ -51,13 +52,10 @@ function submit() {
                         <!-- Seleccionar Crédito -->
                         <div>
                             <InputLabel for="credito_id" value="Seleccionar Crédito *" />
-                            <select
-                                id="credito_id"
-                                v-model="form.credito_id"
+                            <select id="credito_id" v-model="form.credito_id"
                                 class="mt-1 block w-full px-4 py-2 rounded-lg border"
                                 style="background-color: var(--color-bg-secondary); border-color: var(--color-border); color: var(--color-text-primary)"
-                                required
-                            >
+                                required>
                                 <option value="">-- Seleccione un crédito --</option>
                                 <option v-for="credito in creditos" :key="credito.id" :value="credito.id">
                                     {{ credito.nro }} - Saldo: Bs. {{ credito.saldo_final }}
@@ -88,7 +86,8 @@ function submit() {
                                 </div>
                                 <div v-if="creditoActual.intereses_acumulados" class="col-span-2">
                                     <span class="text-gray-600">Intereses Acumulados:</span>
-                                    <span class="font-bold text-orange-600 ml-2">Bs. {{ creditoActual.intereses_acumulados.toFixed(2) }}</span>
+                                    <span class="font-bold text-orange-600 ml-2">Bs. {{
+                                        creditoActual.intereses_acumulados.toFixed(2) }}</span>
                                 </div>
                             </div>
                         </div>
@@ -96,16 +95,8 @@ function submit() {
                         <!-- Monto a Pagar -->
                         <div>
                             <InputLabel for="monto" value="Monto a pagar (Bs.) *" />
-                            <TextInput
-                                id="monto"
-                                v-model="form.monto"
-                                type="number"
-                                step="0.01"
-                                min="0.01"
-                                class="mt-1 block w-full"
-                                placeholder="Ingrese el monto"
-                                required
-                            />
+                            <TextInput id="monto" v-model="form.monto" type="number" step="0.01" min="0.01"
+                                class="mt-1 block w-full" placeholder="Ingrese el monto" required />
                             <p class="text-xs mt-1" style="color: var(--color-text-secondary)">
                                 El pago se aplicará primero a los intereses y luego al capital
                             </p>
@@ -114,20 +105,24 @@ function submit() {
 
                         <!-- Actions -->
                         <div class="flex items-center gap-4 pt-4">
-                            <button
-                                type="submit"
-                                class="btn-primary px-6 py-2 rounded-lg font-medium transition"
-                                :disabled="form.processing"
-                            >
+                            <button type="submit" class="btn-primary px-6 py-2 rounded-lg font-medium transition"
+                                :disabled="form.processing">
                                 {{ form.processing ? 'Procesando...' : 'Realizar Pago' }}
                             </button>
-                            <Link
-                                :href="route('restaurant.pagos.index')"
+                            <Link :href="route('restaurant.pagos.index')"
                                 class="px-6 py-2 rounded-lg font-medium transition"
-                                style="background-color: var(--color-border); color: var(--color-text-primary)"
-                            >
-                                Cancelar
+                                style="background-color: var(--color-border); color: var(--color-text-primary)">
+                            Cancelar
                             </Link>
+                            <Link :href="route('restaurant.pagos.qr', {
+                                credito_id: form.credito_id,
+                                monto: form.monto
+                            })" class="px-6 py-2 rounded-lg bg-green-600 text-white">
+                            Generar pago por QR
+                            </Link>
+
+
+
                         </div>
                     </form>
                 </div>
